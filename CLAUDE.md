@@ -84,6 +84,30 @@ The dongle acts as a central device that:
 4. Download firmware artifacts from GitHub Actions
 5. Flash .uf2 files to respective keyboard halves
 
+## Troubleshooting Split Keyboard and Dongle Issues
+
+### Settings Reset (Factory Reset)
+If you're experiencing pairing issues between keyboard halves or with the dongle, use the settings reset firmware:
+
+1. **Flash settings reset firmware**:
+   - Download `left_settings_reset.uf2`, `right_settings_reset.uf2`, and `dongle_settings_reset.uf2` from GitHub Actions
+   - Flash each device with its respective settings reset firmware
+   - This erases all Bluetooth pairings and settings
+
+2. **Reset pairing process**:
+   - Flash normal firmware back to each device (`corne_left.uf2`, `corne_right.uf2`, `corne_dongle.uf2`)
+   - Reset all devices simultaneously (press reset buttons at the same time)
+   - Allow 10-15 seconds for automatic pairing
+
+3. **Dongle setup order**:
+   - First flash and reset the keyboard halves together
+   - Then power on the dongle to connect as central
+
+### Common Issues
+- **Only one side working**: Reset both halves simultaneously after flashing normal firmware
+- **Wrong key mappings**: Usually indicates the halves are swapped - check which side is responding
+- **No connection**: Use settings reset firmware and follow the complete reset process
+
 ## Key File Locations
 - Main keymap: `config/corne.keymap`
 - Build configuration: `build.yaml` 
