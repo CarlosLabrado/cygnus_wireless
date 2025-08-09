@@ -86,27 +86,33 @@ The dongle acts as a central device that:
 
 ## Troubleshooting Split Keyboard and Dongle Issues
 
-### Settings Reset (Factory Reset)
-If you're experiencing pairing issues between keyboard halves or with the dongle, use the settings reset firmware:
+### Dongle Setup Process
+**IMPORTANT**: When using the dongle, you must use peripheral firmware for the keyboard halves:
 
-1. **Flash settings reset firmware**:
-   - Download `left_settings_reset.uf2`, `right_settings_reset.uf2`, and `dongle_settings_reset.uf2` from GitHub Actions
-   - Flash each device with its respective settings reset firmware
-   - This erases all Bluetooth pairings and settings
+1. **Flash peripheral firmware** (not the regular firmware):
+   - Use `corne_left_peripheral.uf2` for the left half
+   - Use `corne_right_peripheral.uf2` for the right half
+   - Use `corne_dongle.uf2` for the dongle
 
-2. **Reset pairing process**:
-   - Flash normal firmware back to each device (`corne_left.uf2`, `corne_right.uf2`, `corne_dongle.uf2`)
-   - Reset all devices simultaneously (press reset buttons at the same time)
-   - Allow 10-15 seconds for automatic pairing
+2. **Settings reset process** (if having issues):
+   - Flash settings reset firmware to all devices first
+   - Then flash the correct peripheral/dongle firmware
+   - Reset all devices simultaneously
 
-3. **Dongle setup order**:
-   - First flash and reset the keyboard halves together
-   - Then power on the dongle to connect as central
+### Firmware Selection Guide
+**For dongle setup:**
+- Left half: `corne_left_peripheral.uf2` (peripheral mode)
+- Right half: `corne_right_peripheral.uf2` (peripheral mode)
+- Dongle: `corne_dongle.uf2` (central mode)
+
+**For regular split keyboard (no dongle):**
+- Left half: `corne_left.uf2` (central mode)
+- Right half: `corne_right.uf2` (peripheral mode)
 
 ### Common Issues
-- **Only one side working**: Reset both halves simultaneously after flashing normal firmware
-- **Wrong key mappings**: Usually indicates the halves are swapped - check which side is responding
-- **No connection**: Use settings reset firmware and follow the complete reset process
+- **Only one side working**: Make sure you're using peripheral firmware for BOTH halves with dongle
+- **Wrong key mappings**: Check that you flashed peripheral firmware, not regular firmware
+- **No pairing**: Use settings reset firmware first, then flash correct peripheral/dongle firmware
 
 ## Key File Locations
 - Main keymap: `config/corne.keymap`
