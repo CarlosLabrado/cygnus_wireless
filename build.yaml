@@ -22,6 +22,7 @@ include:
   # Dongle with screen (central)
   - board: seeeduino_xiao_ble
     shield: corne_dongle dongle_screen
+    cmake-args: -DSHIELD="corne_dongle,dongle_screen"
     artifact-name: corne-dongle-screen
 
   # Left and right halves as peripherals
