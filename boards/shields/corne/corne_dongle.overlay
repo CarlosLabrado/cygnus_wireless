@@ -3,6 +3,7 @@
 / {
     chosen {
         zmk,kscan = &mock_kscan;
+        zmk,matrix-transform = &default;
     };
 
     mock_kscan: mock_kscan_0 {
@@ -12,7 +13,7 @@
         events = <0>;
     };
 
-    default_transform: keymap_transform_0 {
+    default: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <12>;
         rows = <4>;
