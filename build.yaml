@@ -19,7 +19,27 @@
 #
 ---
 include:
+  # Dongle with screen (central)
+  - board: seeeduino_xiao_ble
+    shield: corne_dongle dongle_screen
+    artifact-name: corne-dongle-screen
+
+  # Left and right halves as peripherals
   - board: nice_nano_v2
     shield: corne_left
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: corne-left-peripheral
+
   - board: nice_nano_v2
     shield: corne_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: corne-right-peripheral
+
+  # Settings reset for all devices
+  - board: nice_nano_v2
+    shield: settings_reset
+    artifact-name: settings-reset-nice-nano
+
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: settings-reset-xiao
