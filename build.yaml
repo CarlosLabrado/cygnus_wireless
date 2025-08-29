@@ -22,7 +22,7 @@ include:
   # Main dongle firmware - only 3 builds needed for operation
   - board: nice_nano_v2
     shield: corne_left
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_USB_LOGGING=y
     artifact-name: corne_left
   - board: nice_nano_v2
     shield: corne_right
@@ -30,6 +30,7 @@ include:
     artifact-name: corne_right
   - board: seeeduino_xiao_ble
     shield: corne_dongle dongle_screen
+    cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
     artifact-name: dongle-screen
   # Settings reset firmware - for troubleshooting only
   - board: nice_nano_v2
