@@ -28,6 +28,8 @@ west build -d build/dongle -b seeeduino_xiao_ble -- -DSHIELD="corne_dongle dongl
 
 Build using GitHub Actions (automatic):
 - The `build.yaml` file configures GitHub Actions to build firmware automatically
+- Triggered on push, pull_request, or workflow_dispatch
+- Uses the standard ZMK build-user-config.yml workflow
 - Builds both peripheral and settings reset firmware variants
 - Artifacts are available in GitHub Actions runs with specific naming:
   - `corne_left.uf2` and `corne_right.uf2` (peripheral firmware for dongle setup)
@@ -55,6 +57,8 @@ west build -b nice_nano_v2 -- -DSHIELD=corne_right
   - `corne_dongle.overlay` - Device tree overlay with mock kscan and 6-column layout
 
 ### Keymap Layers (config/corne.keymap:22-88)
+Visual keymap layouts are available in README.md with detailed key position diagrams.
+
 1. **Layer 0 (Default)**: Standard QWERTY layout with modifier keys
 2. **Layer 1 (Lower)**: Numbers, brackets, and punctuation symbols  
 3. **Layer 2 (Raise)**: Mouse movement, media keys, navigation arrows

@@ -23,7 +23,6 @@ include:
   - board: nice_nano_v2
     shield: corne_left
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-    snippet: zmk-usb-logging #only enable for debugging
     artifact-name: corne_left
   - board: nice_nano_v2
     shield: corne_right
@@ -31,8 +30,6 @@ include:
     artifact-name: corne_right
   - board: seeeduino_xiao_ble
     shield: corne_dongle dongle_screen
-    cmake-args: -DCONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=8000 #optional if logging is enabled
-    snippet: zmk-usb-logging #only enable for debugging
     artifact-name: dongle-screen
   # Settings reset firmware - for troubleshooting only
   - board: nice_nano_v2
